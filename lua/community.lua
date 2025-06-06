@@ -8,6 +8,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.php" },
+  { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   -- import/override with your plugins folder
 }
