@@ -12,11 +12,16 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.spring-boot" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.hyprlang" },
+  { import = "astrocommunity.pack.kotlin" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.recipes.ai" },
   -- import/override with your plugins folder
 }
