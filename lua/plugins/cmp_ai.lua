@@ -6,8 +6,14 @@ return {
     opts.keymap["<Tab>"] = {
       "snippet_forward",
       function()
-        if vim.g.ai_accept then return vim.g.ai_accept() end
+        -- Check if Codeium has a suggestion and accept it
+        local codeium = require("codeium.virtual_text")
+        if codeium.get_current_completion_item() then
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+          return true
+        end
       end,
+      "accept",
       "fallback",
     }
     opts.keymap["<S-Tab>"] = { "snippet_backward", "fallback" }
