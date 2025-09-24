@@ -45,6 +45,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        conceallevel = 1, -- włącz concealing dla markdown
+        concealcursor = "", -- nie ukrywaj w linii z kursorem
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
