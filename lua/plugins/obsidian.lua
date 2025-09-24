@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
+    "giuxtaposition/blink.compat", -- dla integracji z blink.cmp
   },
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -15,6 +16,9 @@ return {
   --   "BufNewFile path/to/my-vault/*.md",
   -- },
   opts = {
+    -- Wyłącz legacy commands aby pozbyć się ostrzeżenia
+    legacy_commands = false,
+
     workspaces = {
       {
         name = "nerdbrain",
@@ -26,8 +30,8 @@ return {
       },
     },
 
-    -- Pozwól na używanie komend poza vault
-    detect_cwd = false,
+    -- Nowa lokalizacja dla nowych notatek (przeniesione z completion)
+    new_notes_location = "0. Inbox",
 
     -- Opcje otwierania notatek
     open_notes_in = "current",
@@ -36,13 +40,16 @@ return {
       enable = true,
       update_debounce = 200,
       max_file_length = 5000,
-      -- Użyj telescope jako picker
-      checkboxes = {
-        [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-        ["x"] = { char = "✔", hl_group = "ObsidianDone" },
-        [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-        ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-        ["!"] = { char = "", hl_group = "ObsidianImportant" },
+      -- Checkbox rendering (używamy checkbox.order zamiast ui.checkboxes)
+      checkbox = {
+        order = { " ", "x", ">", "~", "!" },  -- kolejność stanów checkboxów
+        chars = {
+          [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+          [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+          ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+          ["!"] = { char = "", hl_group = "ObsidianImportant" },
+        },
       },
       bullets = { char = "•", hl_group = "ObsidianBullet" },
       external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
@@ -75,12 +82,9 @@ return {
     },
 
     completion = {
-      nvim_cmp = false, -- wyłączamy bo używamy blink.cmp
+      blink_cmp = true, -- włączamy blink.cmp
       min_chars = 2, -- number of characters required to show suggestions
-      new_notes_location = "0. Inbox",
     },
-    -- Używamy domyślnych mapowań pluginu
-    mappings = {},
 
     -- see below for full list of options 👇
   },
