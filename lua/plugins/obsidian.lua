@@ -33,6 +33,15 @@ return {
     -- Nowa lokalizacja dla nowych notatek (przeniesione z completion)
     new_notes_location = "0. Inbox",
 
+    -- Konfiguracja daily notes
+    daily_notes = {
+      folder = "03 Journal",  -- folder gdzie będą tworzone daily notes
+      date_format = "%Y-%m-%d",  -- format daty w nazwie pliku
+      alias_format = "%B %-d, %Y",  -- format aliasu (jak będzie wyświetlane)
+      default_tags = { "daily-notes" },  -- domyślne tagi dla daily notes
+      template = nil  -- możesz ustawić nazwę template dla daily notes
+    },
+
     -- Opcje otwierania notatek
     open_notes_in = "current",
     -- UI picker configuration
